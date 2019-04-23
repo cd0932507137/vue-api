@@ -6,22 +6,22 @@
 </template>
 
 <script>
-import Vue from "vue";
-import axios from "axios";
-import VueAxios from "vue-axios";
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
-Vue.use(VueAxios, axios);
+Vue.use(VueAxios, axios)
 
 export default {
-  name: "App",
-  created() {
+  name: 'App',
+  created () {
     Vue.axios.get('/data/youbike').then(response => {
-      console.log(response.data);
-      this.items = response.data;
-      this.data = this.items.retVal;
-    });
+      console.log(response.data)
+      this.items = response.data
+      this.data = this.items.retVal
+    })
   }
-};
+}
 </script>
 
 <style>
