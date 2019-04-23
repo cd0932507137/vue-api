@@ -1,7 +1,24 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
+    <table>
+      <tr>
+        <th>sno(站點代號)</th>
+        <th>sna(場站名稱)</th>
+        <th>sarea(場站區域)</th>
+        <th>snaen(場站名稱)</th>
+        <th>act(全站禁用狀態)</th>
+      </tr>
+      <tbody>
+        <tr v-for="(row, index) in items" :key="index">
+          <td>{{ row['sno'] }}</td>
+          <td>{{ row['sna'] }}</td>
+          <td>{{ row['sarea'] }}</td>
+          <td>{{ row['snaen'] }}</td>
+          <td>{{ row['act'] }}</td>
+        </tr>
+    </tbody>
+    </table>
   </div>
 </template>
 
@@ -14,11 +31,15 @@ Vue.use(VueAxios, axios)
 
 export default {
   name: 'App',
+  data: function () {
+    return  {
+      items: []
+    }
+  },
   created () {
     Vue.axios.get('/data/youbike').then(response => {
       console.log(response.data)
-      this.items = response.data
-      this.data = this.items.retVal
+      this.items = response.data.retVal
     })
   }
 }
@@ -32,5 +53,21 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 </style>
