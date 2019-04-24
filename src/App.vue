@@ -1,24 +1,30 @@
 <template>
   <div id="app">
     <router-view/>
-    <table>
-      <tr>
-        <th>sno(站點代號)</th>
-        <th>sna(場站名稱)</th>
-        <th>sarea(場站區域)</th>
-        <th>snaen(場站名稱)</th>
-        <th>act(全站禁用狀態)</th>
-      </tr>
-      <tbody>
-        <tr v-for="(item, index) in items" :key="index">
-          <td>{{ item.sno }}</td>
-          <td>{{ item.sna }}</td>
-          <td>{{ item.sarea }}</td>
-          <td>{{ item.snaen }}</td>
-          <td>{{ item.act }}</td>
-        </tr>
-    </tbody>
-    </table>
+    <div class="container">
+      <div class="row">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">sno(站點代號)</th>
+              <th scope="col">sna(場站名稱)</th>
+              <th scope="col">sarea(場站區域)</th>
+              <th scope="col">snaen(場站名稱)</th>
+              <th scope="col">act(全站禁用狀態)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in items" :key="index">
+              <td>{{ item.sno }}</td>
+              <td>{{ item.sna }}</td>
+              <td>{{ item.sarea }}</td>
+              <td>{{ item.snaen }}</td>
+              <td>{{ item.act }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -53,21 +59,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
 }
 </style>
