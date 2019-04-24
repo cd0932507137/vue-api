@@ -10,12 +10,12 @@
         <th>act(全站禁用狀態)</th>
       </tr>
       <tbody>
-        <tr v-for="(row, index) in items" :key="index">
-          <td>{{ row['sno'] }}</td>
-          <td>{{ row['sna'] }}</td>
-          <td>{{ row['sarea'] }}</td>
-          <td>{{ row['snaen'] }}</td>
-          <td>{{ row['act'] }}</td>
+        <tr v-for="(item, index) in items" :key="index">
+          <td>{{ item.sno }}</td>
+          <td>{{ item.sna }}</td>
+          <td>{{ item.sarea }}</td>
+          <td>{{ item.snaen }}</td>
+          <td>{{ item.act }}</td>
         </tr>
     </tbody>
     </table>
@@ -32,7 +32,7 @@ Vue.use(VueAxios, axios)
 export default {
   name: 'App',
   data: function () {
-    return  {
+    return {
       items: []
     }
   },
